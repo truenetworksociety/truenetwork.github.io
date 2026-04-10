@@ -1759,32 +1759,28 @@
     </section>
 
     <section class="cta" id="connect">
-      <div class="container">
-        <div class="cta-card reveal">
-          <div class="cta-layout">
-            <div>
-              <span class="eyebrow"><span class="dot"></span> Connect with the Society</span>
-              <h2>Let’s build stronger community systems together.</h2>
-              <p>
-                Whether you are a nonprofit, municipality, community partner, policymaker, or researcher, the Society
-                is designed to support collaborative, evidence-informed action. Use this section as your partnership
-                or inquiry call-to-action, or replace it with your preferred contact workflow.
-              </p>
-            </div>
-
-            <form class="cta-form" action="#" method="post">
-              <div class="input-row">
-                <input type="email" name="email" placeholder="Your email address" aria-label="Email address" />
-                <button type="submit" class="btn btn-primary">Start a conversation</button>
-              </div>
-              <div class="small-note">
-                Replace this form action with your contact tool, CRM, or newsletter platform.
-              </div>
-            </form>
-          </div>
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-layout">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Connect with the Society</span>
+          <h2>Let’s build stronger community systems together.</h2>
+          <p>
+            Whether you are a nonprofit, municipality, community partner, policymaker, or researcher, the Society
+            is designed to support collaborative, evidence-informed action.
+          </p>
         </div>
+
+        <form class="cta-form" id="ctaForm">
+          <div class="input-row">
+            <input type="email" id="emailInput" name="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-primary">Start a conversation</button>
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   </main>
 
   <footer class="site-footer">
@@ -1818,6 +1814,27 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+
+  <script>
+  document.getElementById("ctaForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("emailInput").value;
+      const pageUrl = window.location.href;
+
+      const subject = encodeURIComponent("New inquiry from TrueNetwork website");
+      const body = encodeURIComponent(
+          `Hello,\n\nI would like to connect with the Society.\n\n` +
+          `My email: ${email}\n` +
+          `Page: ${pageUrl}\n\n` +
+          `Please reach out to me.\n\nThank you`
+      );
+
+      const mailtoLink = `mailto:info@truenetworksociety.ca?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+  });
   </script>
 </body>
 </html>
