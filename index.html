@@ -1199,10 +1199,22 @@
       caret-color: #e8eefc;
     }
 
-    .platform-link {
-      all: revert;
-      font-weight: bold;
-      color: #0d6efd;
+    .nav-platform {
+      background: #ffffff;
+      color: #06101d !important;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.25s ease;
+    }
+
+    /* hover state */
+    .nav-platform:hover,
+    .nav-platform:focus-visible {
+      background: #f0f4ff;
+      color: #06101d !important;
+      transform: translateY(-1px);
     }
   </style>
 </head>
@@ -1225,7 +1237,7 @@
         <a href="/#approach">Approach</a>
         <a href="/#purposes">Purposes</a>
         <a href="/#connect">Connect</a>
-        <a href="/platform" class="platform-link"><b>Platform</b></a>
+        <a href="/platform" class="nav-platform"><b>Platform</b></a>
       </nav>
     </div>
   </header>
