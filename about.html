@@ -1,0 +1,1897 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrueNetwork Community Solutions Society</title>
+  <link rel="icon" href="assets/logos/icon.png" type="image/x-icon">
+  <meta
+    name="description"
+    content="TrueNetwork Community Solutions Society advances community-driven research, digital infrastructure, and collaborative innovation to strengthen resilience, equity, and sustainable development across British Columbia."
+  />
+  <style>
+    :root{
+      --bg:#06101d;
+      --bg-2:#0a1628;
+      --bg-3:#0d1c34;
+      --panel:rgba(12, 24, 43, 0.76);
+      --panel-strong:#0f1f39;
+      --panel-soft:rgba(255,255,255,0.04);
+      --line:rgba(220,234,255,0.11);
+      --line-strong:rgba(220,234,255,0.18);
+      --text:#eef4ff;
+      --muted:#afbdd3;
+      --muted-2:#8fa0bb;
+      --accent:#63e2d6;
+      --accent-2:#7da8ff;
+      --accent-3:#9cf4a6;
+      --warning:#ffd98b;
+      --shadow:0 24px 80px rgba(0,0,0,0.28);
+      --radius:28px;
+      --radius-sm:18px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 520px at 12% -10%, rgba(125,168,255,0.22), transparent 50%),
+        radial-gradient(900px 420px at 92% 4%, rgba(99,226,214,0.16), transparent 42%),
+        radial-gradient(680px 420px at 70% 45%, rgba(156,244,166,0.06), transparent 52%),
+        linear-gradient(180deg, #040b14 0%, #07111f 18%, #091427 55%, #081223 100%);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size:56px 56px;
+      mask-image:linear-gradient(180deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+      opacity:.28;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button, input, textarea{font:inherit}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(125,168,255,0.24);
+      background:linear-gradient(180deg, rgba(125,168,255,0.16), rgba(99,226,214,0.08));
+      border-radius:999px;
+      color:#d9e7ff;
+      font-size:.82rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      backdrop-filter:blur(14px);
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+    }
+
+    .eyebrow .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow:0 0 0 6px rgba(99,226,214,.12);
+      flex:0 0 auto;
+    }
+
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:90;
+      background:rgba(5,11,20,0.72);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:16px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:46px;
+      height:46px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(99,226,214,.26), transparent 45%),
+        linear-gradient(135deg, rgba(125,168,255,.22), rgba(99,226,214,.12));
+      border:1px solid var(--line);
+      box-shadow:0 12px 35px rgba(0,0,0,0.18);
+      flex:0 0 auto;
+    }
+
+    .brand-mark svg{width:24px;height:24px}
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:.98rem;
+      line-height:1.1;
+      letter-spacing:-.02em;
+    }
+
+    .brand-text span{
+      display:block;
+      color:var(--muted);
+      font-size:.79rem;
+      margin-top:3px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.93rem;
+      transition:background .25s ease, color .25s ease, transform .25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible{
+      color:var(--text);
+      background:rgba(255,255,255,0.06);
+      outline:none;
+      transform:translateY(-1px);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:600;
+      letter-spacing:-.01em;
+      transition:transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible{
+      transform:translateY(-2px);
+      outline:none;
+    }
+
+    .btn-primary{
+      color:#06111d;
+      background:linear-gradient(135deg, var(--accent), #9cedff);
+      box-shadow:0 12px 32px rgba(99,226,214,0.22);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible{
+      box-shadow:0 16px 40px rgba(99,226,214,0.28);
+    }
+
+    .btn-secondary{
+      color:var(--text);
+      border-color:var(--line-strong);
+      background:rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible{
+      border-color:rgba(125,168,255,0.34);
+      background:rgba(255,255,255,0.07);
+    }
+
+    .hero{
+      padding:74px 0 40px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.05fr) minmax(360px, .95fr);
+      gap:42px;
+      align-items:center;
+    }
+
+    .hero-copy h1{
+      font-size:clamp(3rem, 6.2vw, 5.7rem);
+      line-height:.95;
+      letter-spacing:-.055em;
+      margin:18px 0 22px;
+      max-width:11ch;
+    }
+
+    .hero-copy p{
+      font-size:clamp(1.04rem, 1.6vw, 1.18rem);
+      color:var(--muted);
+      max-width:66ch;
+      margin:0;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .audience-wrap{
+      margin-top:30px;
+    }
+
+    .audience-label{
+      color:var(--muted-2);
+      font-size:.83rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-bottom:12px;
+    }
+
+    .audience-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      color:#dce8fa;
+      font-size:.93rem;
+    }
+
+    .pill::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow:0 0 0 5px rgba(125,168,255,.10);
+      flex:0 0 auto;
+    }
+
+    .hero-note{
+      margin-top:18px;
+      color:var(--muted-2);
+      font-size:.95rem;
+    }
+
+    .hero-visual{
+      position:relative;
+    }
+
+    .dashboard{
+      position:relative;
+      padding:20px;
+      border-radius:32px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(13,26,46,0.96), rgba(8,16,30,0.98)),
+        radial-gradient(circle at 90% 5%, rgba(125,168,255,0.18), transparent 36%);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .dashboard::before{
+      content:"";
+      position:absolute;
+      inset:-120px auto auto -120px;
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(99,226,214,.22), transparent 68%);
+      filter:blur(10px);
+      opacity:.7;
+      z-index:-1;
+    }
+
+    .dashboard-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding-bottom:16px;
+      margin-bottom:16px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .dashboard-top strong{
+      display:block;
+      font-size:1rem;
+      letter-spacing:-.02em;
+    }
+
+    .dashboard-top span{
+      display:block;
+      color:var(--muted);
+      font-size:.84rem;
+    }
+
+    .status-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid var(--line);
+      color:#dce8fa;
+      font-size:.84rem;
+      white-space:nowrap;
+    }
+
+    .status-chip::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent-3);
+      box-shadow:0 0 0 6px rgba(156,244,166,.08);
+      flex:0 0 auto;
+    }
+
+    .kpi-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-bottom:16px;
+    }
+
+    .kpi{
+      padding:16px;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.04);
+    }
+
+    .kpi span{
+      display:block;
+      color:var(--muted);
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      margin-bottom:8px;
+    }
+
+    .kpi strong{
+      display:block;
+      font-size:1rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .dashboard-canvas{
+      position:relative;
+      min-height:440px;
+      border-radius:26px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 80% 18%, rgba(125,168,255,.18), transparent 25%),
+        radial-gradient(circle at 22% 72%, rgba(99,226,214,.12), transparent 28%),
+        linear-gradient(180deg, #0a1629 0%, #08121f 100%);
+      overflow:hidden;
+    }
+
+    .canvas-svg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      opacity:.92;
+    }
+
+    .node{
+      position:absolute;
+      max-width:220px;
+      padding:14px 16px;
+      border-radius:20px;
+      border:1px solid rgba(220,234,255,0.12);
+      background:rgba(8,17,31,0.84);
+      box-shadow:0 18px 32px rgba(0,0,0,0.18);
+      backdrop-filter:blur(10px);
+    }
+
+    .node small{
+      display:block;
+      color:var(--accent);
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:4px;
+    }
+
+    .node strong{
+      display:block;
+      font-size:.98rem;
+      line-height:1.25;
+      letter-spacing:-.02em;
+    }
+
+    .node p{
+      color:var(--muted);
+      font-size:.86rem;
+      line-height:1.5;
+      margin:8px 0 0;
+    }
+
+    .node-a{top:28px; left:24px;}
+    .node-b{top:56px; right:22px;}
+    .node-c{top:180px; left:46px;}
+    .node-d{top:196px; right:44px;}
+    .node-e{bottom:30px; left:92px;}
+    .node-f{bottom:44px; right:82px;}
+
+    .micro-card{
+      position:absolute;
+      padding:12px 14px;
+      border-radius:18px;
+      border:1px solid rgba(220,234,255,0.12);
+      background:rgba(255,255,255,0.06);
+      color:#eaf1ff;
+      font-size:.85rem;
+      box-shadow:0 16px 28px rgba(0,0,0,0.16);
+      backdrop-filter:blur(8px);
+    }
+
+    .micro-1{top:148px; left:50%; transform:translateX(-50%);}
+    .micro-2{bottom:146px; left:50%; transform:translateX(-58%);}
+    .micro-3{top:108px; left:38%;}
+    .micro-4{bottom:92px; right:24px;}
+
+    .section{
+      padding:82px 0;
+      position:relative;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(300px, .78fr);
+      gap:26px;
+      align-items:end;
+      margin-bottom:34px;
+    }
+
+    .section-head h2{
+      margin:14px 0 0;
+      font-size:clamp(2rem, 4.2vw, 3.4rem);
+      line-height:1.02;
+      letter-spacing:-.045em;
+      max-width:12ch;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .panel-grid-3,
+    .panel-grid-2,
+    .panel-grid-4{
+      display:grid;
+      gap:20px;
+    }
+
+    .panel-grid-3{grid-template-columns:repeat(3, minmax(0, 1fr))}
+    .panel-grid-2{grid-template-columns:repeat(2, minmax(0, 1fr))}
+    .panel-grid-4{grid-template-columns:repeat(4, minmax(0, 1fr))}
+
+    .card{
+      position:relative;
+      padding:26px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(14,27,49,0.88), rgba(10,18,31,0.94));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:transform .28s ease, border-color .28s ease, background .28s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(125,168,255,0.25);
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:auto auto -40px -40px;
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(125,168,255,.14), transparent 65%);
+      pointer-events:none;
+    }
+
+    .card-number{
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(125,168,255,.22);
+      background:linear-gradient(180deg, rgba(125,168,255,.16), rgba(99,226,214,.08));
+      color:#d7e6ff;
+      font-weight:700;
+      font-size:.95rem;
+      margin-bottom:14px;
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      font-size:1.28rem;
+      line-height:1.15;
+      letter-spacing:-.03em;
+    }
+
+    .card p{
+      margin:0 0 14px;
+      color:var(--muted);
+    }
+
+    .card ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .card li{
+      margin:0 0 10px;
+      color:var(--muted);
+    }
+
+    .mini-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:18px;
+    }
+
+    .tag{
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid var(--line);
+      color:#d9e7ff;
+      font-size:.82rem;
+    }
+
+    .split-panel{
+      display:grid;
+      grid-template-columns:minmax(0, 1.06fr) minmax(320px, .94fr);
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .feature-list{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .feature-item{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:14px;
+      align-items:start;
+      padding:16px 18px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.04);
+    }
+
+    .feature-icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, rgba(99,226,214,.18), rgba(125,168,255,.18));
+      border:1px solid rgba(125,168,255,.22);
+      color:#dff5ff;
+      font-size:1.1rem;
+      font-weight:700;
+    }
+
+    .feature-item strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:4px;
+      letter-spacing:-.02em;
+    }
+
+    .feature-item span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .quote-card{
+      padding:30px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 90% 16%, rgba(99,226,214,.16), transparent 36%),
+        linear-gradient(180deg, rgba(15,27,50,.94), rgba(10,18,31,.98));
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:100%;
+    }
+
+    .quote-mark{
+      font-size:4rem;
+      line-height:1;
+      letter-spacing:-.06em;
+      color:rgba(125,168,255,0.32);
+      margin-bottom:10px;
+    }
+
+    .quote-card p{
+      margin:0;
+      font-size:1.06rem;
+      line-height:1.7;
+      color:#dce8fa;
+    }
+
+    .quote-card footer{
+      margin-top:24px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .program-card h3{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .program-dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow:0 0 0 8px rgba(99,226,214,0.08);
+      flex:0 0 auto;
+    }
+
+    .placemaking-layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1.02fr) minmax(320px, .98fr);
+      gap:20px;
+    }
+
+    .place-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .place-tile{
+      padding:18px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.04);
+      min-height:160px;
+    }
+
+    .place-tile strong{
+      display:block;
+      font-size:1.04rem;
+      margin-bottom:8px;
+      letter-spacing:-.02em;
+    }
+
+    .place-tile p{
+      color:var(--muted);
+      margin:0;
+      font-size:.94rem;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0, 1fr));
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .step{
+      position:relative;
+      padding:22px 18px;
+      border-radius:24px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(14,27,49,0.88), rgba(10,18,31,0.94));
+      box-shadow:var(--shadow);
+    }
+
+    .step-number{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(99,226,214,.18), rgba(125,168,255,.18));
+      border:1px solid rgba(125,168,255,.22);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .step h3{
+      margin:0 0 10px;
+      font-size:1.08rem;
+      letter-spacing:-.02em;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .support-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .support-card{
+      padding:20px;
+      border-radius:24px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.04);
+    }
+
+    .support-card h3{
+      margin:12px 0 10px;
+      font-size:1.08rem;
+      letter-spacing:-.02em;
+    }
+
+    .support-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .support-icon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(125,168,255,.22);
+      background:linear-gradient(135deg, rgba(99,226,214,.18), rgba(125,168,255,.18));
+      font-size:1.1rem;
+    }
+
+    .accordion{
+      border-radius:24px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(14,27,49,0.88), rgba(10,18,31,0.94));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .accordion + .accordion{
+      margin-top:14px;
+    }
+
+    .accordion summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      padding:22px 24px;
+      user-select:none;
+    }
+
+    .accordion summary::-webkit-details-marker{display:none}
+
+    .summary-index{
+      flex:0 0 auto;
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      background:linear-gradient(135deg, rgba(125,168,255,.16), rgba(99,226,214,.10));
+      border:1px solid rgba(125,168,255,.22);
+      color:#dce8fa;
+    }
+
+    .summary-text{
+      flex:1 1 auto;
+      min-width:0;
+    }
+
+    .summary-text strong{
+      display:block;
+      font-size:1.06rem;
+      letter-spacing:-.02em;
+      margin-bottom:4px;
+    }
+
+    .summary-text span{
+      display:block;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .summary-caret{
+      flex:0 0 auto;
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      transition:transform .25s ease, color .25s ease, background .25s ease;
+    }
+
+    .accordion[open] .summary-caret{
+      transform:rotate(45deg);
+      color:var(--text);
+      background:rgba(255,255,255,.08);
+    }
+
+    .accordion-content{
+      padding:0 24px 24px 76px;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .commitment{
+      position:relative;
+      padding:34px;
+      border-radius:32px;
+      border:1px solid rgba(156,244,166,0.18);
+      background:
+        radial-gradient(circle at 85% 18%, rgba(156,244,166,.12), transparent 30%),
+        linear-gradient(180deg, rgba(13,28,28,0.84), rgba(10,18,20,0.96));
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(260px, .6fr);
+      gap:26px;
+      align-items:center;
+    }
+
+    .commitment h2{
+      margin:0 0 12px;
+      font-size:clamp(2rem, 3.5vw, 3rem);
+      letter-spacing:-.04em;
+      line-height:1.02;
+      max-width:12ch;
+    }
+
+    .commitment p{
+      margin:0;
+      color:#d5efda;
+      font-size:1.02rem;
+      max-width:64ch;
+    }
+
+    .commitment-box{
+      padding:22px;
+      border-radius:24px;
+      border:1px solid rgba(156,244,166,.16);
+      background:rgba(255,255,255,0.05);
+    }
+
+    .commitment-box strong{
+      display:block;
+      font-size:1.06rem;
+      margin-bottom:8px;
+      letter-spacing:-.02em;
+    }
+
+    .commitment-box ul{
+      margin:0;
+      padding-left:18px;
+      color:#d5efda;
+    }
+
+    .commitment-box li{
+      margin:0 0 10px;
+    }
+
+    .cta{
+      padding:48px 0 82px;
+    }
+
+    .cta-card{
+      position:relative;
+      overflow:hidden;
+      padding:34px;
+      border-radius:34px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(99,226,214,.14), transparent 26%),
+        radial-gradient(circle at 86% 14%, rgba(125,168,255,.18), transparent 30%),
+        linear-gradient(180deg, rgba(14,27,49,.94), rgba(10,18,31,.98));
+      box-shadow:var(--shadow);
+    }
+
+    .cta-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -120px -120px auto;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(125,168,255,.18), transparent 68%);
+      filter:blur(6px);
+    }
+
+    .cta-layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(300px, .78fr);
+      gap:24px;
+      align-items:center;
+    }
+
+    .cta-card h2{
+      margin:0 0 12px;
+      font-size:clamp(2rem, 4vw, 3.2rem);
+      line-height:1;
+      letter-spacing:-.045em;
+      max-width:12ch;
+    }
+
+    .cta-card p{
+      margin:0;
+      color:var(--muted);
+      max-width:60ch;
+      font-size:1.03rem;
+    }
+
+    .cta-form{
+      display:grid;
+      gap:14px;
+    }
+
+    .input-row{
+      display:flex;
+      gap:12px;
+      padding:10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(12px);
+    }
+
+    .input-row input{
+      flex:1 1 auto;
+      min-width:0;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--text);
+      padding:0 8px;
+    }
+
+    .input-row input::placeholder{
+      color:var(--muted-2);
+    }
+
+    .small-note{
+      color:var(--muted-2);
+      font-size:.88rem;
+    }
+
+    footer.site-footer{
+      padding:0 0 44px;
+    }
+
+    .footer-shell{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+      padding-top:26px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      justify-content:flex-end;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible{
+      color:var(--text);
+      outline:none;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,
+      .split-panel,
+      .placemaking-layout,
+      .commitment,
+      .cta-layout,
+      .section-head{
+        grid-template-columns:1fr;
+      }
+
+      .panel-grid-4,
+      .support-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+
+      .steps{
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+      }
+
+      .hero-copy h1{
+        max-width:12ch;
+      }
+    }
+
+    @media (max-width: 860px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        justify-content:flex-start;
+      }
+
+      .kpi-grid,
+      .panel-grid-3,
+      .panel-grid-2{
+        grid-template-columns:1fr;
+      }
+
+      .steps{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+
+      .dashboard-canvas{
+        min-height:560px;
+      }
+
+      .node-a{top:22px; left:18px;}
+      .node-b{top:112px; right:18px;}
+      .node-c{top:226px; left:18px;}
+      .node-d{top:304px; right:18px;}
+      .node-e{bottom:126px; left:18px;}
+      .node-f{bottom:26px; right:18px;}
+
+      .micro-1{top:70px; left:auto; right:24px; transform:none;}
+      .micro-2{bottom:210px; left:30px; transform:none;}
+      .micro-3{top:176px; left:auto; right:30px;}
+      .micro-4{bottom:170px; right:24px;}
+    }
+
+    @media (max-width: 620px){
+      .container{
+        width:min(var(--max), calc(100% - 28px));
+      }
+
+      .hero{
+        padding-top:48px;
+      }
+
+      .hero-copy h1{
+        font-size:clamp(2.4rem, 12vw, 4rem);
+      }
+
+      .dashboard{
+        padding:14px;
+        border-radius:24px;
+      }
+
+      .dashboard-canvas{
+        min-height:650px;
+      }
+
+      .card,
+      .quote-card,
+      .cta-card,
+      .commitment{
+        padding:22px;
+      }
+
+      .place-grid,
+      .panel-grid-4,
+      .support-grid,
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .input-row{
+        flex-direction:column;
+        border-radius:24px;
+      }
+
+      .input-row .btn{
+        width:100%;
+      }
+
+      .accordion summary{
+        padding:18px;
+      }
+
+      .accordion-content{
+        padding:0 18px 18px 18px;
+      }
+
+      .footer-shell{
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="TrueNetwork Community Solutions Society">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/logos/icon.png" alt="TrueNetwork Logo">
+        </span>
+        <span class="brand-text">
+          <strong>TrueNetwork Community Solutions Society</strong>
+          <span>Applied research • digital infrastructure • community innovation</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="https://truenetworksociety.ca/platform"><b>Platform</b></a>
+        <a href="#about">About</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#programs">Programs</a>
+        <a href="#approach">Approach</a>
+        <a href="#purposes">Purposes</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">
+            <span class="dot"></span>
+            Community intelligence for collective well-being
+          </span>
+
+          <h1>Building community intelligence for collective well-being.</h1>
+
+          <p>
+            TrueNetwork Community Solutions Society is a nonprofit organization advancing community-driven research,
+            digital infrastructure, and collaborative innovation to strengthen resilience, equity, and sustainable
+            development across British Columbia.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#focus">Explore Our Work</a>
+            <a class="btn btn-secondary" href="#purposes">Read Constitutional Purposes</a>
+          </div>
+
+          <div class="audience-wrap">
+            <div class="audience-label">Working with</div>
+            <div class="audience-pills">
+              <span class="pill">Nonprofit Organizations</span>
+              <span class="pill">Community Partners</span>
+              <span class="pill">Municipalities</span>
+              <span class="pill">Governments</span>
+              <span class="pill">Researchers</span>
+              <span class="pill">Policymakers</span>
+            </div>
+          </div>
+
+          <div class="hero-note">
+            Operating on a nonprofit basis for public benefit, community resilience, and evidence-informed action.
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="dashboard">
+            <div class="dashboard-top">
+              <div>
+                <strong>TrueNetwork Community Solutions Society</strong>
+                <span>Research + data + action for communities in British Columbia</span>
+              </div>
+              <div class="status-chip">Public-benefit focused</div>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi">
+                <span>Knowledge</span>
+                <strong>Participatory, practice-based research</strong>
+              </div>
+              <div class="kpi">
+                <span>Infrastructure</span>
+                <strong>Digital tools, data systems, and platforms</strong>
+              </div>
+              <div class="kpi">
+                <span>Action</span>
+                <strong>Programs that strengthen resilience and innovation</strong>
+              </div>
+            </div>
+
+            <div class="dashboard-canvas" aria-hidden="true">
+              <svg class="canvas-svg" viewBox="0 0 700 520" fill="none" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="lineOne" x1="80" y1="50" x2="620" y2="460" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#63E2D6" stop-opacity="0.7"/>
+                    <stop offset="1" stop-color="#7DA8FF" stop-opacity="0.3"/>
+                  </linearGradient>
+                  <linearGradient id="lineTwo" x1="620" y1="40" x2="120" y2="480" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7DA8FF" stop-opacity="0.6"/>
+                    <stop offset="1" stop-color="#63E2D6" stop-opacity="0.2"/>
+                  </linearGradient>
+                </defs>
+                <path d="M118 92 C 230 115, 300 150, 420 126 S 575 136, 610 116" stroke="url(#lineOne)" stroke-width="2"/>
+                <path d="M128 110 C 186 214, 266 220, 350 256 S 506 340, 584 382" stroke="url(#lineTwo)" stroke-width="2"/>
+                <path d="M162 320 C 250 280, 360 300, 456 332 S 560 360, 590 364" stroke="url(#lineOne)" stroke-width="2"/>
+                <path d="M166 374 C 266 404, 374 420, 468 394 S 532 330, 560 290" stroke="url(#lineTwo)" stroke-width="2"/>
+
+                <circle cx="116" cy="96" r="8" fill="#63E2D6" fill-opacity="0.9"/>
+                <circle cx="612" cy="116" r="7" fill="#7DA8FF" fill-opacity="0.9"/>
+                <circle cx="162" cy="320" r="8" fill="#7DA8FF" fill-opacity="0.85"/>
+                <circle cx="592" cy="365" r="8" fill="#63E2D6" fill-opacity="0.85"/>
+                <circle cx="188" cy="410" r="7" fill="#9CF4A6" fill-opacity="0.9"/>
+                <circle cx="556" cy="292" r="7" fill="#9CF4A6" fill-opacity="0.85"/>
+                <circle cx="351" cy="256" r="9" fill="#EAF1FF" fill-opacity="0.9"/>
+                <circle cx="438" cy="132" r="7" fill="#63E2D6" fill-opacity="0.85"/>
+                <circle cx="458" cy="332" r="7" fill="#7DA8FF" fill-opacity="0.85"/>
+              </svg>
+
+              <div class="node node-a">
+                <small>Research</small>
+                <strong>Applied Research &amp; Community Knowledge</strong>
+                <p>Practice-based evidence for planning, evaluation, and co-creation.</p>
+              </div>
+
+              <div class="node node-b">
+                <small>Infrastructure</small>
+                <strong>Digital Tools &amp; Data Systems</strong>
+                <p>Shared information environments for collaboration and learning.</p>
+              </div>
+
+              <div class="node node-c">
+                <small>Place</small>
+                <strong>Community-Led Place-Making</strong>
+                <p>Public space activation rooted in local assets, culture, and lived experience.</p>
+              </div>
+
+              <div class="node node-d">
+                <small>Innovation</small>
+                <strong>Programs &amp; Resilience</strong>
+                <p>Initiatives spanning health, sustainability, mobility, housing, and recreation.</p>
+              </div>
+
+              <div class="node node-e">
+                <small>Systems</small>
+                <strong>Capacity Building &amp; Policy Research</strong>
+                <p>Training and translation from community practice into policy and systems change.</p>
+              </div>
+
+              <div class="node node-f">
+                <small>Commitment</small>
+                <strong>Public Benefit Operations</strong>
+                <p>All resources and accretions are used solely to advance the Society’s purposes.</p>
+              </div>
+
+              <div class="micro-card micro-1">Evidence-informed planning</div>
+              <div class="micro-card micro-2">Asset-based regeneration</div>
+              <div class="micro-card micro-3">Collective wellness</div>
+              <div class="micro-card micro-4">Equity-driven collaboration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Society at a glance</span>
+            <h2>Research, infrastructure, and co-created action for stronger communities.</h2>
+          </div>
+          <p>
+            We design and support systems that help communities understand themselves, collaborate effectively,
+            and act with evidence. Our work bridges lived experience, community practice, and data to support
+            more responsive, equitable, and sustainable outcomes.
+          </p>
+        </div>
+
+        <div class="split-panel">
+          <div class="card reveal">
+            <div class="card-number">01</div>
+            <h3>What the Society advances</h3>
+            <p>
+              TrueNetwork Community Solutions Society works at the intersection of community knowledge, participatory
+              research, digital infrastructure, and collaborative innovation. We support nonprofit organizations,
+              governments, municipalities, and community partners through evidence-informed planning, co-creation,
+              participatory evaluation, and community development.
+            </p>
+
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="feature-icon">A</div>
+                <div>
+                  <strong>Applied and participatory</strong>
+                  <span>We prioritize practice-based knowledge grounded in community realities and lived experience.</span>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">D</div>
+                <div>
+                  <strong>Digitally enabled</strong>
+                  <span>We build tools and shared systems that make knowledge visible, usable, and actionable.</span>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">P</div>
+                <div>
+                  <strong>Place- and policy-connected</strong>
+                  <span>We support local initiatives while also helping translate practice into systems change.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini-tags">
+              <span class="tag">Evidence-informed planning</span>
+              <span class="tag">Participatory evaluation</span>
+              <span class="tag">Community well-being</span>
+              <span class="tag">Sustainable development</span>
+            </div>
+          </div>
+
+          <aside class="quote-card reveal">
+            <div>
+              <div class="quote-mark">“</div>
+              <p>
+                We believe community intelligence is built when local knowledge, research, public systems, and
+                collaborative action are connected in ways that help communities plan with clarity, respond with care,
+                and regenerate with purpose.
+              </p>
+            </div>
+            <footer>Nonprofit basis • Public benefit • British Columbia focus</footer>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="focus">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Core focus areas</span>
+            <h2>Three integrated areas of work.</h2>
+          </div>
+          <p>
+            The Society’s work is organized around interdependent capabilities: generating community knowledge,
+            building digital infrastructure for social impact, and implementing programs and initiatives that improve
+            resilience, innovation, and collective well-being.
+          </p>
+        </div>
+
+        <div class="panel-grid-3">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3>Applied Research &amp; Community Knowledge</h3>
+            <p>
+              We conduct applied, participatory research to generate practice-based evidence that supports more
+              effective planning, stronger service design, participatory evaluation, and asset-based community
+              development and regeneration.
+            </p>
+            <ul>
+              <li>Evidence-informed planning and decision-making</li>
+              <li>Program and service co-creation</li>
+              <li>Participatory and developmental evaluation</li>
+              <li>Asset-based community development</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-number">02</div>
+            <h3>Digital Infrastructure for Social Impact</h3>
+            <p>
+              We develop and operate digital tools, data systems, and collaborative platforms that enable
+              organizations, policymakers, and communities to access, share, and use information related to
+              community development and social impact.
+            </p>
+            <ul>
+              <li>Knowledge access and information sharing</li>
+              <li>Cross-sector collaboration and visibility</li>
+              <li>Community asset and initiative mapping</li>
+              <li>Shared learning across organizations and regions</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-number">03</div>
+            <h3>Programs &amp; Community Innovation</h3>
+            <p>
+              We design and implement initiatives that strengthen resilience and innovation through interdisciplinary,
+              intersectoral, and community-led approaches to real-world social, health, and environmental issues.
+            </p>
+            <ul>
+              <li>Collective wellness and health equity</li>
+              <li>Climate resilience and sustainability</li>
+              <li>Housing, mobility, and place-based regeneration</li>
+              <li>Community recreation, learning, and activation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="programs">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Program domains</span>
+            <h2>Priority areas for community resilience and innovation.</h2>
+          </div>
+          <p>
+            The Society may develop initiatives across a wide range of interconnected domains, always with a focus on
+            co-creation, inclusion, community resilience, and long-term public benefit.
+          </p>
+        </div>
+
+        <div class="panel-grid-3">
+          <article class="card program-card reveal">
+            <h3><span class="program-dot"></span> Health, Wellness &amp; Social Prescribing</h3>
+            <p>
+              Supporting mental, physical, and collective well-being through community-connected models, experiential
+              therapies and learning, and initiatives that link people to local supports, activities, and relationships.
+            </p>
+          </article>
+
+          <article class="card program-card reveal">
+            <h3><span class="program-dot"></span> Climate Resilience &amp; Environmental Sustainability</h3>
+            <p>
+              Advancing regenerative and climate-responsive community solutions that improve preparedness, local
+              stewardship, adaptation, and the sustainability of community systems and spaces.
+            </p>
+          </article>
+
+          <article class="card program-card reveal">
+            <h3><span class="program-dot"></span> Housing &amp; Homelessness</h3>
+            <p>
+              Supporting collaborative and evidence-informed responses to housing insecurity, homelessness, and the
+              social conditions that affect stability, dignity, and belonging.
+            </p>
+          </article>
+
+          <article class="card program-card reveal">
+            <h3><span class="program-dot"></span> Mobility &amp; Active Transportation</h3>
+            <p>
+              Encouraging equitable access, connection, and healthy movement through community-centered mobility
+              initiatives, active transportation, and place-based design that improves everyday participation.
+            </p>
+          </article>
+
+          <article class="card program-card reveal">
+            <h3><span class="program-dot"></span> Recreation, Learning &amp; Community Activation</h3>
+            <p>
+              Creating programs and experiences that bring people together through recreation, skill-building,
+              community-based learning, and shared participation in public life.
+            </p>
+          </article>
+
+          <article class="card program-card reveal">
+            <h3><span class="program-dot"></span> Sustainable Regeneration &amp; Place-Based Innovation</h3>
+            <p>
+              Building local capacity for regeneration through interdisciplinary processes that connect infrastructure,
+              social systems, public spaces, cultural strengths, and community imagination.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container placemaking-layout">
+        <div class="card reveal">
+          <div class="card-number">04</div>
+          <h3>Community-led place-making and activation</h3>
+          <p>
+            We support grassroots and community-led place-making through co-creative, interdisciplinary, and
+            intersectoral processes that build on local assets, cultural strengths, and lived experience.
+          </p>
+          <p>
+            This includes facilitating the community-led design of public spaces, events, and micro-infrastructure
+            that promote belonging, collective wellness, and place-based sustainable regeneration, and that may
+            integrate social prescribing and community-based learning opportunities.
+          </p>
+
+          <div class="mini-tags">
+            <span class="tag">Public spaces</span>
+            <span class="tag">Events</span>
+            <span class="tag">Micro-infrastructure</span>
+            <span class="tag">Belonging</span>
+            <span class="tag">Lived experience</span>
+            <span class="tag">Cultural strengths</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-number">05</div>
+          <h3>Place-based design elements</h3>
+          <div class="place-grid">
+            <div class="place-tile">
+              <strong>Public space design</strong>
+              <p>Community-led design of spaces that support connection, inclusion, and shared use.</p>
+            </div>
+            <div class="place-tile">
+              <strong>Events &amp; activation</strong>
+              <p>Programming and gatherings that strengthen local identity, participation, and belonging.</p>
+            </div>
+            <div class="place-tile">
+              <strong>Micro-infrastructure</strong>
+              <p>Small-scale, high-value interventions that improve everyday experience and local resilience.</p>
+            </div>
+            <div class="place-tile">
+              <strong>Learning in place</strong>
+              <p>Community-based learning and social prescribing opportunities integrated into local settings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> How we work</span>
+            <h2>Participatory, interdisciplinary, and evidence-informed by design.</h2>
+          </div>
+          <p>
+            Our approach combines community leadership, research, digital methods, and collaborative implementation.
+            We aim to make local practice more visible, strengthen evidence literacy, and support intersectoral
+            collaboration that leads to better outcomes and more effective systems.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-number">1</div>
+            <h3>Listen &amp; engage</h3>
+            <p>Start from local context, lived experience, community priorities, and partner knowledge.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">2</div>
+            <h3>Map assets &amp; evidence</h3>
+            <p>Connect community knowledge, data, and existing practice to understand conditions and opportunities.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">3</div>
+            <h3>Co-create solutions</h3>
+            <p>Design programs, tools, public spaces, and initiatives through collaborative and inclusive processes.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">4</div>
+            <h3>Evaluate &amp; learn</h3>
+            <p>Use participatory evaluation and evidence literacy to strengthen practice and shared accountability.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">5</div>
+            <h3>Translate to systems change</h3>
+            <p>Support training, policy research, and intersectoral learning that connects local practice to broader change.</p>
+          </div>
+        </div>
+
+        <div class="section-head reveal" style="margin-top:56px;">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Who we support</span>
+            <h2>Built to serve collaborative community ecosystems.</h2>
+          </div>
+          <p>
+            The Society’s purposes explicitly support nonprofit organizations, governments, municipalities, and
+            community partners while also creating value for practitioners, policymakers, and researchers engaged in
+            collective well-being, health equity, and sustainable development.
+          </p>
+        </div>
+
+        <div class="support-grid">
+          <article class="support-card reveal">
+            <div class="support-icon">N</div>
+            <h3>Nonprofits &amp; community organizations</h3>
+            <p>Applied research, co-creation, evaluation, and shared tools that strengthen program design and impact.</p>
+          </article>
+          <article class="support-card reveal">
+            <div class="support-icon">M</div>
+            <h3>Municipalities &amp; governments</h3>
+            <p>Evidence-informed planning, policy research, community insight, and collaboration infrastructure.</p>
+          </article>
+          <article class="support-card reveal">
+            <div class="support-icon">C</div>
+            <h3>Community partners &amp; grassroots leaders</h3>
+            <p>Asset-based place-making, activation, regeneration, and community-based learning opportunities.</p>
+          </article>
+          <article class="support-card reveal">
+            <div class="support-icon">R</div>
+            <h3>Researchers &amp; policymakers</h3>
+            <p>Practice-based evidence, policy translation, and stronger connections between community practice and systems change.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="purposes">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Constitutional purposes</span>
+            <h2>The Society’s formal purpose statements.</h2>
+          </div>
+          <p>
+            Below is a website-ready presentation of the Society’s constitutional purposes so visitors can understand
+            both the public-facing mission and the formal nonprofit basis on which the organization operates.
+          </p>
+        </div>
+
+        <details class="accordion reveal" open>
+          <summary>
+            <span class="summary-index">1</span>
+            <span class="summary-text">
+              <strong>Applied research and participatory knowledge</strong>
+              <span>Supporting evidence-informed planning, co-creation, evaluation, and community development.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To conduct applied research and develop participatory, practice-based knowledge to support nonprofit
+            organizations, governments, municipalities, and community partners in evidence-informed planning, program
+            and service co-creation, participatory evaluation, asset-based community development and regeneration,
+            sustainable development, and the advancement of collective wellness, health equity, and community
+            well-being in British Columbia.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">2</span>
+            <span class="summary-text">
+              <strong>Digital tools, data systems, and collaborative platforms</strong>
+              <span>Enabling communities and organizations to access, share, and use social-impact information.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To develop, maintain and operate digital tools, data systems, and collaborative platforms that enable
+            organizations, policymakers, and communities to access, share, and use information related to community
+            development and social impact.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">3</span>
+            <span class="summary-text">
+              <strong>Programs, services, and resilience initiatives</strong>
+              <span>Strengthening innovation and resilience across social, health, environmental, and place-based domains.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To develop and implement programs, services, and initiatives that strengthen community resilience and
+            innovation, including initiatives related to social services and infrastructure, mental and physical
+            health, climate resilience and environmental sustainability, community recreation, social prescribing,
+            experiential therapies and learning, mobility and active transportation, housing and homelessness,
+            and place-making.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">4</span>
+            <span class="summary-text">
+              <strong>Grassroots place-making and community activation</strong>
+              <span>Supporting community-led design of public space, events, micro-infrastructure, and belonging.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To support grassroots and community-led place-making and community activation through co-creative,
+            interdisciplinary, and intersectoral processes that build on local assets, cultural strengths, and lived
+            experience, including facilitating the community-led design of public spaces, events, and
+            micro-infrastructure that promote belonging, collective wellness, and place-based sustainable regeneration,
+            and that may integrate social prescribing and community-based learning opportunities.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">5</span>
+            <span class="summary-text">
+              <strong>Public education, capacity building, and policy research</strong>
+              <span>Advancing equity, evidence literacy, collaboration, and systems change.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To promote public education, capacity building, and policy research to improve social, health,
+            environmental, and community outcomes, including providing training, resources, and community-based
+            learning opportunities that advance equity, diversity, and inclusion, strengthen evidence literacy related
+            to practice-based evidence, and support intersectoral collaboration to translate community practice into
+            policy and systems change.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">6</span>
+            <span class="summary-text">
+              <strong>Nonprofit basis and use of resources</strong>
+              <span>Ensuring all profits and accretions are used solely to advance the Society’s purposes.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To operate on a nonprofit basis and to ensure that any profits or other accretions to the Society are
+            used solely for promoting the purposes of the Society.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="commitment reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Public benefit commitment</span>
+            <h2>All resources are directed toward mission and community impact.</h2>
+            <p>
+              TrueNetwork Community Solutions Society operates on a nonprofit basis. Revenues, surpluses, and other
+              accretions are used solely to advance the Society’s purposes through research, digital infrastructure,
+              programs, education, and community-led initiatives.
+            </p>
+          </div>
+          <div class="commitment-box">
+            <strong>Mission-aligned use of resources</strong>
+            <ul>
+              <li>Advance collective wellness, health equity, and community well-being</li>
+              <li>Strengthen community resilience, innovation, and regeneration</li>
+              <li>Support education, collaboration, and policy-relevant practice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="connect">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-layout">
+            <div>
+              <span class="eyebrow"><span class="dot"></span> Connect with the Society</span>
+              <h2>Let’s build stronger community systems together.</h2>
+              <p>
+                Whether you are a nonprofit, municipality, community partner, policymaker, or researcher, the Society
+                is designed to support collaborative, evidence-informed action. Use this section as your partnership
+                or inquiry call-to-action, or replace it with your preferred contact workflow.
+              </p>
+            </div>
+
+            <form class="cta-form" action="#" method="post">
+              <div class="input-row">
+                <input type="email" name="email" placeholder="Your email address" aria-label="Email address" />
+                <button type="submit" class="btn btn-primary">Start a conversation</button>
+              </div>
+              <div class="small-note">
+                Replace this form action with your contact tool, CRM, or newsletter platform.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <strong style="display:block; color:var(--text); margin-bottom:6px;">TrueNetwork Community Solutions Society</strong>
+        <span>Community intelligence, collaborative infrastructure, and place-based innovation for public benefit.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#programs">Programs</a>
+        <a href="#purposes">Purposes</a>
+        <a href="#connect">Connect</a>
+        <span>© <span id="year"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
