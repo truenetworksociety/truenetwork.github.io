@@ -1198,6 +1198,12 @@
       transition: background-color 9999s ease-in-out 0s;
       caret-color: #e8eefc;
     }
+
+    .platform-link {
+      all: revert;
+      font-weight: bold;
+      color: #0d6efd;
+    }
   </style>
 </head>
 <body>
@@ -1214,12 +1220,12 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary">
-        <a href="/platform"><b>Platform</b></a>
         <a href="/about">About</a>
         <a href="/initiatives">Initiatives</a>
         <a href="/#approach">Approach</a>
         <a href="/#purposes">Purposes</a>
         <a href="/#connect">Connect</a>
+        <a href="/platform" class="platform-link"><b>Platform</b></a>
       </nav>
     </div>
   </header>
