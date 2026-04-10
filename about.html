@@ -1212,6 +1212,25 @@
       transition: background-color 9999s ease-in-out 0s;
       caret-color: #e8eefc;
     }
+
+    .nav-platform {
+      background: linear-gradient(135deg, #ffffff, #e6f0ff);
+      color: #06101d !important;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.25s ease;
+    }
+
+    /* IMPORTANT: override nav hover */
+    .nav-links a.nav-platform:hover,
+    .nav-links a.nav-platform:focus-visible {
+      background: #ffffff; /* keep it white */
+      color: #06101d !important;
+      transform: translateY(-1px);
+    }
+
   </style>
 </head>
 <body>
@@ -1232,6 +1251,7 @@
         <a href="#about">About</a>
         <a href="#board">Board Members</a>
         <a href="#executives">Executives</a>
+        <a href="/platform" class="nav-platform"><b>Platform</b></a>
       </nav>
     </div>
   </header>
