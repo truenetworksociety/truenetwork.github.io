@@ -1208,6 +1208,14 @@
       border: 1px solid rgba(255,255,255,0.2);
       transition: all 0.25s ease;
     }
+
+    /* IMPORTANT: override nav hover */
+    .nav-links a.nav-platform:hover,
+    .nav-links a.nav-platform:focus-visible {
+      background: #ffffff; /* keep it white */
+      color: #06101d !important;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body>
