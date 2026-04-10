@@ -1414,5 +1414,26 @@
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
+
+  <script>
+  document.getElementById("ctaForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("emailInput").value;
+      const pageUrl = window.location.href;
+
+      const subject = encodeURIComponent("New inquiry from TrueNetwork website");
+      const body = encodeURIComponent(
+          `Hello,\n\nI would like to connect with the Society.\n\n` +
+          `My email: ${email}\n` +
+          `Page: ${pageUrl}\n\n` +
+          `Please reach out to me.\n\nThank you`
+      );
+
+      const mailtoLink = `mailto:info@truenetworksociety.ca?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+  });
+  </script>
 </body>
 </html>
