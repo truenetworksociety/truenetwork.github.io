@@ -1192,6 +1192,26 @@
         flex-direction:column;
       }
     }
+
+    .cta-form input[type="email"] {
+      background: transparent;
+      color: #e8eefc;
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+
+    /* Chrome / Edge / Safari autofill fix */
+    .cta-form input[type="email"]:-webkit-autofill,
+    .cta-form input[type="email"]:-webkit-autofill:hover,
+    .cta-form input[type="email"]:-webkit-autofill:focus,
+    .cta-form input[type="email"]:-webkit-autofill:active {
+      -webkit-text-fill-color: #e8eefc;
+      -webkit-box-shadow: 0 0 0 1000px transparent inset;
+      box-shadow: 0 0 0 1000px transparent inset;
+      transition: background-color 9999s ease-in-out 0s;
+      caret-color: #e8eefc;
+    }
   </style>
 </head>
 <body>
