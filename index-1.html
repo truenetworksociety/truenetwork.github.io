@@ -397,12 +397,21 @@
       align-items:center;
       gap:8px;
       padding:8px 12px;
+
       border-radius:999px;
-      background:rgba(255,255,255,0.06);
-      border:1px solid var(--line);
-      color:#dce8fa;
+
+      /* consistent with pill */
+      background:rgba(255,255,255,0.9);
+
+      border:1px solid rgba(84,119,146,0.25);
+
+      color:#1A3263;
+
       font-size:.84rem;
       white-space:nowrap;
+
+      /* subtle elevation */
+      box-shadow:0 4px 10px rgba(26,50,99,0.06);
     }
 
     .status-chip::before{
@@ -410,8 +419,13 @@
       width:8px;
       height:8px;
       border-radius:50%;
-      background:var(--accent-3);
-      box-shadow:0 0 0 6px rgba(156,244,166,.08);
+
+      /* cleaner, solid indicator */
+      background:#547792;
+
+      /* soft halo instead of glow */
+      box-shadow:0 0 0 4px rgba(255,197,112,0.35);
+
       flex:0 0 auto;
     }
 
