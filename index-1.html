@@ -1,0 +1,737 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrueNetwork Community Solutions Society</title>
+  <link rel="icon" href="assets/logos/icon.png" type="image/x-icon">
+  <meta
+    name="description"
+    content="TrueNetwork Community Solutions Society advances community-driven research, digital infrastructure, and collaborative innovation to strengthen resilience, equity, and sustainable development across British Columbia."
+  />
+  <style>
+/* ---------- Light theme override ---------- */
+:root{
+  --bg:#FFF8EF;
+  --bg-2:#F7E8D3;
+  --bg-3:#EFD2B0;
+  --panel:rgba(255,255,255,0.86);
+  --panel-strong:#FFFFFF;
+  --panel-soft:rgba(26,50,99,0.04);
+  --line:rgba(26,50,99,0.10);
+  --line-strong:rgba(26,50,99,0.18);
+  --text:#1A3263;
+  --muted:#547792;
+  --muted-2:#6D86A0;
+  --accent:#FFC570;
+  --accent-2:#547792;
+  --accent-3:#1A3263;
+  --warning:#FFC570;
+  --shadow:0 20px 50px rgba(26,50,99,0.10);
+}
+
+/* page background */
+body{
+  color:var(--text);
+  background:
+    radial-gradient(1000px 520px at 12% -10%, rgba(255,197,112,0.22), transparent 50%),
+    radial-gradient(900px 420px at 92% 4%, rgba(84,119,146,0.14), transparent 42%),
+    radial-gradient(680px 420px at 70% 45%, rgba(239,210,176,0.30), transparent 52%),
+    linear-gradient(180deg, #FFFDF9 0%, #FFF8EF 22%, #F9EEDC 65%, #F5E4CB 100%);
+}
+
+body::before{
+  background-image:
+    linear-gradient(rgba(26,50,99,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,50,99,0.035) 1px, transparent 1px);
+  opacity:.45;
+}
+
+/* navigation */
+.navbar{
+  background:rgba(255,248,239,0.82);
+  border-bottom:1px solid var(--line);
+}
+
+.brand-mark{
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,197,112,.28), transparent 45%),
+    linear-gradient(135deg, rgba(239,210,176,.95), rgba(255,255,255,.95));
+  border:1px solid var(--line);
+  box-shadow:0 10px 25px rgba(26,50,99,0.08);
+}
+
+.brand-text span,
+.nav-links a,
+.hero-copy p,
+.section-head p,
+.card p,
+.card li,
+.place-tile p,
+.step p,
+.support-card p,
+.summary-text span,
+.accordion-content,
+.cta-card p,
+.small-note,
+.footer-shell,
+.hero-note{
+  color:var(--muted);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible{
+  color:var(--text);
+  background:rgba(26,50,99,0.05);
+}
+
+/* pills / eyebrow */
+.eyebrow{
+  border:1px solid rgba(84,119,146,0.18);
+  background:linear-gradient(180deg, rgba(255,197,112,0.22), rgba(239,210,176,0.45));
+  color:var(--text);
+  box-shadow:0 8px 20px rgba(26,50,99,.06);
+}
+
+.eyebrow .dot{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow:0 0 0 6px rgba(255,197,112,.18);
+}
+
+.pill,
+.tag,
+.btn-secondary,
+.feature-item,
+.place-tile,
+.support-card,
+.summary-caret,
+.input-row{
+  background:rgba(255,255,255,0.72);
+  border-color:var(--line);
+  color:var(--text);
+}
+
+/* buttons */
+.btn-primary{
+  color:#1A3263;
+  background:linear-gradient(135deg, #FFC570, #EFD2B0);
+  box-shadow:0 12px 28px rgba(255,197,112,0.28);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible{
+  box-shadow:0 16px 36px rgba(255,197,112,0.34);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible{
+  border-color:rgba(84,119,146,0.34);
+  background:rgba(84,119,146,0.08);
+}
+
+/* cards / panels */
+.card,
+.step,
+.accordion,
+.quote-card,
+.cta-card,
+.commitment,
+.dashboard{
+  background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,243,232,0.96));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+
+.card:hover{
+  border-color:rgba(84,119,146,0.24);
+}
+
+.card::after{
+  background:radial-gradient(circle, rgba(255,197,112,.18), transparent 65%);
+}
+
+.card-number,
+.step-number,
+.summary-index,
+.feature-icon,
+.support-icon{
+  background:linear-gradient(135deg, rgba(255,197,112,.28), rgba(84,119,146,.14));
+  border:1px solid rgba(84,119,146,.18);
+  color:var(--text);
+}
+
+/* dashboard / hero visual */
+.dashboard{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,232,211,0.92)),
+    radial-gradient(circle at 90% 5%, rgba(84,119,146,0.12), transparent 36%);
+}
+
+.dashboard::before{
+  background:radial-gradient(circle, rgba(255,197,112,.22), transparent 68%);
+}
+
+.dashboard-top{
+  border-bottom:1px solid var(--line);
+}
+
+.dashboard-top span,
+.kpi span{
+  color:var(--muted);
+}
+
+.status-chip{
+  background:rgba(255,255,255,0.78);
+  border:1px solid var(--line);
+  color:var(--text);
+}
+
+.status-chip::before{
+  background:#547792;
+  box-shadow:0 0 0 6px rgba(84,119,146,.10);
+}
+
+.kpi{
+  background:rgba(255,255,255,0.72);
+  border:1px solid var(--line);
+}
+
+.dashboard-canvas{
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 80% 18%, rgba(84,119,146,.14), transparent 25%),
+    radial-gradient(circle at 22% 72%, rgba(255,197,112,.14), transparent 28%),
+    linear-gradient(180deg, #FFFDF9 0%, #F6EAD8 100%);
+}
+
+.node{
+  border:1px solid rgba(26,50,99,0.10);
+  background:rgba(255,255,255,0.86);
+  box-shadow:0 14px 26px rgba(26,50,99,0.08);
+}
+
+.node small{
+  color:#547792;
+}
+
+.node p{
+  color:var(--muted);
+}
+
+.program-dot{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow:0 0 0 8px rgba(255,197,112,0.14);
+}
+
+.quote-mark{
+  color:rgba(84,119,146,0.24);
+}
+
+.quote-card p{
+  color:var(--text);
+}
+
+.commitment{
+  border:1px solid rgba(84,119,146,0.14);
+  background:
+    radial-gradient(circle at 85% 18%, rgba(255,197,112,.16), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,238,223,.96));
+}
+
+.commitment p,
+.commitment-box ul{
+  color:var(--muted);
+}
+
+.commitment-box{
+  background:rgba(255,255,255,0.70);
+  border:1px solid var(--line);
+}
+
+.cta-card{
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255,197,112,.18), transparent 26%),
+    radial-gradient(circle at 86% 14%, rgba(84,119,146,.14), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,238,223,.96));
+}
+
+.cta-card::before{
+  background:radial-gradient(circle, rgba(84,119,146,.12), transparent 68%);
+}
+
+.input-row input,
+.cta-form input[type="email"]{
+  color:var(--text);
+}
+
+.input-row input::placeholder{
+  color:var(--muted-2);
+}
+
+.cta-form input[type="email"]:-webkit-autofill,
+.cta-form input[type="email"]:-webkit-autofill:hover,
+.cta-form input[type="email"]:-webkit-autofill:focus,
+.cta-form input[type="email"]:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--text);
+}
+
+/* footer */
+footer.site-footer strong{
+  color:var(--text) !important;
+}
+
+.footer-shell{
+  border-top:1px solid var(--line);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible{
+  color:var(--text);
+}
+
+/* existing platform button adapted for light mode */
+.nav-platform {
+  background: linear-gradient(135deg, #1A3263, #547792);
+  color: #ffffff !important;
+  border: 1px solid rgba(26,50,99,0.08);
+}
+
+.nav-links a.nav-platform:hover,
+.nav-links a.nav-platform:focus-visible {
+  background: #1A3263;
+  color: #ffffff !important;
+}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="TrueNetwork Community Solutions Society">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/logos/icon.png" alt="TrueNetwork Logo">
+        </span>
+        <span class="brand-text">
+          <strong>TrueNetwork Community Solutions Society</strong>
+          <span>Applied research • digital infrastructure • community innovation</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="/#approach">Approach</a>
+        <a href="/#purposes">Purposes</a>
+        <a href="/#connect">Connect</a>
+        <a href="/platform" class="nav-platform"><b>Platform</b></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">
+            <span class="dot"></span>
+            Community intelligence for collective well-being
+          </span>
+
+          <h1>Building community intelligence for collective well-being.</h1>
+
+          <p>
+            TrueNetwork Community Solutions Society is a nonprofit organization advancing community-driven research,
+            digital infrastructure, and collaborative innovation to strengthen resilience, equity, and sustainable
+            development across British Columbia.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/initiatives">Explore Our Work</a>
+            <a class="btn btn-secondary" href="#purposes">Read Constitutional Purposes</a>
+          </div>
+
+          <div class="audience-wrap">
+            <div class="audience-label">Working with</div>
+            <div class="audience-pills">
+              <span class="pill">Nonprofit Organizations</span>
+              <span class="pill">Community Partners</span>
+              <span class="pill">Municipalities</span>
+              <span class="pill">Governments</span>
+              <span class="pill">Researchers</span>
+              <span class="pill">Policymakers</span>
+            </div>
+          </div>
+
+          <div class="hero-note">
+            Operating on a nonprofit basis for public benefit, community resilience, and evidence-informed action.
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="dashboard">
+            <div class="dashboard-top">
+              <div>
+                <strong>TrueNetwork Community Solutions Society</strong>
+                <span>Research + data + action for communities in British Columbia</span>
+              </div>
+              <div class="status-chip">Public-benefit focused</div>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi">
+                <span>Knowledge</span>
+                <strong>Participatory, practice-based research</strong>
+              </div>
+              <div class="kpi">
+                <span>Infrastructure</span>
+                <strong>Digital tools, data systems, and platforms</strong>
+              </div>
+              <div class="kpi">
+                <span>Action</span>
+                <strong>Programs that strengthen resilience and innovation</strong>
+              </div>
+            </div>
+
+            <div class="dashboard-canvas" aria-hidden="true">
+              <svg class="canvas-svg" viewBox="0 0 700 520" fill="none" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="lineOne" x1="80" y1="50" x2="620" y2="460" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#63E2D6" stop-opacity="0.7"/>
+                    <stop offset="1" stop-color="#7DA8FF" stop-opacity="0.3"/>
+                  </linearGradient>
+                  <linearGradient id="lineTwo" x1="620" y1="40" x2="120" y2="480" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7DA8FF" stop-opacity="0.6"/>
+                    <stop offset="1" stop-color="#63E2D6" stop-opacity="0.2"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <div class="node node-a">
+                <small>Research</small>
+                <strong>Applied Research &amp; Community Knowledge</strong>
+                <p>Practice-based evidence for planning, evaluation, and co-creation.</p>
+              </div>
+
+              <div class="node node-b">
+                <small>Place</small>
+                <strong>Community-Led Place-Making</strong>
+                <p>Public space activation rooted in local assets, culture, and lived experience.</p>
+              </div>
+
+              <div class="node node-c">
+                <small>Innovation</small>
+                <strong>Programs &amp; Resilience</strong>
+                <p>Initiatives spanning health, sustainability, mobility, housing, and recreation domains.</p>
+              </div>
+
+              <div class="node node-d">
+                <small>Systems</small>
+                <strong>Capacity Building &amp; Policy Research</strong>
+                <p>Training and translation from community practice into policy and systems change.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> How we work</span>
+            <h2>Participatory, interdisciplinary, and evidence-informed by design.</h2>
+          </div>
+          <p>
+            Our approach combines community leadership, research, digital methods, and collaborative implementation.
+            We aim to make local practice more visible, strengthen evidence literacy, and support intersectoral
+            collaboration that leads to better outcomes and more effective systems.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-number">1</div>
+            <h3>Listen &amp; engage</h3>
+            <p>Start from local context, lived experience, community priorities, and partner knowledge.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">2</div>
+            <h3>Map assets &amp; evidence</h3>
+            <p>Connect community knowledge, data, and existing practice to understand conditions and opportunities.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">3</div>
+            <h3>Co-create solutions</h3>
+            <p>Design programs, tools, public spaces, and initiatives through collaborative and inclusive processes.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">4</div>
+            <h3>Evaluate &amp; learn</h3>
+            <p>Use participatory evaluation and evidence literacy to strengthen practice and shared accountability.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-number">5</div>
+            <h3>Translate to systems change</h3>
+            <p>Support training, policy research, and intersectoral learning that connects local practice to broader change.</p>
+          </div>
+        </div>
+
+        <div class="section-head reveal" style="margin-top:56px;">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Who we support</span>
+            <h2>Built to serve collaborative community ecosystems.</h2>
+          </div>
+          <p>
+            The Society’s purposes explicitly support nonprofit organizations, governments, municipalities, and
+            community partners while also creating value for practitioners, policymakers, and researchers engaged in
+            collective well-being, health equity, and sustainable development.
+          </p>
+        </div>
+
+        <div class="support-grid">
+          <article class="support-card reveal">
+            <div class="support-icon">N</div>
+            <h3>Nonprofits &amp; community organizations</h3>
+            <p>Applied research, co-creation, evaluation, and shared tools that strengthen program design and impact.</p>
+          </article>
+          <article class="support-card reveal">
+            <div class="support-icon">M</div>
+            <h3>Municipalities &amp; governments</h3>
+            <p>Evidence-informed planning, policy research, community insight, and collaboration infrastructure.</p>
+          </article>
+          <article class="support-card reveal">
+            <div class="support-icon">C</div>
+            <h3>Community partners &amp; grassroots leaders</h3>
+            <p>Asset-based place-making, activation, regeneration, and community-based learning opportunities.</p>
+          </article>
+          <article class="support-card reveal">
+            <div class="support-icon">R</div>
+            <h3>Researchers &amp; policymakers</h3>
+            <p>Practice-based evidence, policy translation, and stronger connections between community practice and systems change.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="purposes">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Constitutional purposes</span>
+            <h2>The Society’s formal purpose statements.</h2>
+          </div>
+          <p>
+            
+          </p>
+        </div>
+
+        <details class="accordion reveal" open>
+          <summary>
+            <span class="summary-index">1</span>
+            <span class="summary-text">
+              <strong>Applied research and participatory knowledge</strong>
+              <span>Supporting evidence-informed planning, co-creation, evaluation, and community development.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To conduct applied research and develop participatory, practice-based knowledge to support nonprofit
+            organizations, governments, municipalities, and community partners in evidence-informed planning, program
+            and service co-creation, participatory evaluation, asset-based community development and regeneration,
+            sustainable development, and the advancement of collective wellness, health equity, and community
+            well-being in British Columbia.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">2</span>
+            <span class="summary-text">
+              <strong>Digital tools, data systems, and collaborative platforms</strong>
+              <span>Enabling communities and organizations to access, share, and use social-impact information.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To develop, maintain and operate digital tools, data systems, and collaborative platforms that enable
+            organizations, policymakers, and communities to access, share, and use information related to community
+            development and social impact.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">3</span>
+            <span class="summary-text">
+              <strong>Programs, services, and resilience initiatives</strong>
+              <span>Strengthening innovation and resilience across social, health, environmental, and place-based domains.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To develop and implement programs, services, and initiatives that strengthen community resilience and
+            innovation, including initiatives related to social services and infrastructure, mental and physical
+            health, climate resilience and environmental sustainability, community recreation, social prescribing,
+            experiential therapies and learning, mobility and active transportation, housing and homelessness,
+            and place-making.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">4</span>
+            <span class="summary-text">
+              <strong>Grassroots place-making and community activation</strong>
+              <span>Supporting community-led design of public space, events, micro-infrastructure, and belonging.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To support grassroots and community-led place-making and community activation through co-creative,
+            interdisciplinary, and intersectoral processes that build on local assets, cultural strengths, and lived
+            experience, including facilitating the community-led design of public spaces, events, and
+            micro-infrastructure that promote belonging, collective wellness, and place-based sustainable regeneration,
+            and that may integrate social prescribing and community-based learning opportunities.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">5</span>
+            <span class="summary-text">
+              <strong>Public education, capacity building, and policy research</strong>
+              <span>Advancing equity, evidence literacy, collaboration, and systems change.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To promote public education, capacity building, and policy research to improve social, health,
+            environmental, and community outcomes, including providing training, resources, and community-based
+            learning opportunities that advance equity, diversity, and inclusion, strengthen evidence literacy related
+            to practice-based evidence, and support intersectoral collaboration to translate community practice into
+            policy and systems change.
+          </div>
+        </details>
+
+        <details class="accordion reveal">
+          <summary>
+            <span class="summary-index">6</span>
+            <span class="summary-text">
+              <strong>Nonprofit basis and use of resources</strong>
+              <span>Ensuring all profits and accretions are used solely to advance the Society’s purposes.</span>
+            </span>
+            <span class="summary-caret">+</span>
+          </summary>
+          <div class="accordion-content">
+            To operate on a nonprofit basis and to ensure that any profits or other accretions to the Society are
+            used solely for promoting the purposes of the Society.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="commitment reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Public benefit commitment</span>
+            <h2>All resources are directed toward mission and community impact.</h2>
+            <p>
+              TrueNetwork Community Solutions Society operates on a nonprofit basis. Revenues, surpluses, and other
+              accretions are used solely to advance the Society’s purposes through research, digital infrastructure,
+              programs, education, and community-led initiatives.
+            </p>
+          </div>
+          <div class="commitment-box">
+            <strong>Mission-aligned use of resources</strong>
+            <ul>
+              <li>Advance collective wellness, health equity, and community well-being</li>
+              <li>Strengthen community resilience, innovation, and regeneration</li>
+              <li>Support education, collaboration, and policy-relevant practice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="connect">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-layout">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Connect with the Society</span>
+          <h2>Let’s build stronger community systems together.</h2>
+          <p>
+            Whether you are a nonprofit, municipality, community partner, policymaker, or researcher, the Society
+            is designed to support collaborative, evidence-informed action.
+          </p>
+        </div>
+
+        <form class="cta-form" id="ctaForm">
+          <div class="input-row">
+            <input type="email" id="emailInput" name="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-primary">Start a conversation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <strong style="display:block; color:var(--text); margin-bottom:6px;">TrueNetwork Community Solutions Society</strong>
+        <span>Community intelligence, collaborative infrastructure, and place-based innovation for public benefit.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="#purposes">Purposes</a>
+        <a href="#connect">Connect</a>
+        <span>© <span id="year"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+
+  <script>
+  document.getElementById("ctaForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("emailInput").value;
+      const pageUrl = window.location.href;
+
+      const subject = encodeURIComponent("New inquiry from TrueNetwork website");
+      const body = encodeURIComponent(
+          `Hello,\n\nI would like to connect with the Society.\n\n` +
+          `My email: ${email}\n` +
+          `Page: ${pageUrl}\n\n` +
+          `Please reach out to me.\n\nThank you`
+      );
+
+      const mailtoLink = `mailto:info@truenetworksociety.ca?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+  });
+  </script>
+</body>
+</html>
