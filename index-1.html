@@ -894,10 +894,10 @@
       position:relative;
       padding:34px;
       border-radius:32px;
-      border:1px solid rgba(156,244,166,0.18);
+      border:1px solid rgba(84,119,146,0.16);
       background:
-        radial-gradient(circle at 85% 18%, rgba(156,244,166,.12), transparent 30%),
-        linear-gradient(180deg, rgba(13,28,28,0.84), rgba(10,18,20,0.96));
+        radial-gradient(circle at 85% 18%, rgba(255,197,112,.16), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(253,241,226,0.98));
       box-shadow:var(--shadow);
       display:grid;
       grid-template-columns:minmax(0, 1fr) minmax(260px, .6fr);
@@ -915,7 +915,7 @@
 
     .commitment p{
       margin:0;
-      color:#d5efda;
+      color:var(--text);
       font-size:1.02rem;
       max-width:64ch;
     }
@@ -937,11 +937,12 @@
     .commitment-box ul{
       margin:0;
       padding-left:18px;
-      color:#d5efda;
+      color:var(--text);
     }
 
     .commitment-box li{
       margin:0 0 10px;
+      color:var(--text);
     }
 
     .cta{
