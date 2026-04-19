@@ -301,11 +301,22 @@
       align-items:center;
       gap:8px;
       padding:10px 14px;
-      border:1px solid var(--line);
+
+      /* stronger border for separation */
+      border:1px solid rgba(84,119,146,0.25);
+
       border-radius:999px;
-      background:rgba(255,255,255,0.04);
-      color:#dce8fa;
+
+      /* solid/light surface instead of transparent */
+      background:rgba(255,255,255,0.9);
+
+      /* dark readable text */
+      color:#1A3263;
+
       font-size:.93rem;
+
+      /* subtle elevation */
+      box-shadow:0 4px 12px rgba(26,50,99,0.06);
     }
 
     .pill::before{
@@ -313,8 +324,13 @@
       width:7px;
       height:7px;
       border-radius:50%;
-      background:linear-gradient(135deg, var(--accent-2), var(--accent));
-      box-shadow:0 0 0 5px rgba(125,168,255,.10);
+
+      /* stronger, visible accent */
+      background:linear-gradient(135deg, #547792, #FFC570);
+
+      /* warm halo instead of blue glow */
+      box-shadow:0 0 0 4px rgba(255,197,112,0.35);
+
       flex:0 0 auto;
     }
 
