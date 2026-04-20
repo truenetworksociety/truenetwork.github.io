@@ -685,16 +685,21 @@
     }
 
     .feature-icon{
-      width:42px;
-      height:42px;
+      width:44px;
+      height:44px;
       border-radius:14px;
       display:grid;
       place-items:center;
-      background:linear-gradient(135deg, rgba(99,226,214,.18), rgba(125,168,255,.18));
+
+      /* match support-icon */
       border:1px solid rgba(125,168,255,.22);
-      color:#dff5ff;
+      background:linear-gradient(
+        135deg,
+        rgba(99,226,214,.18),
+        rgba(125,168,255,.18)
+      );
+
       font-size:1.1rem;
-      font-weight:700;
     }
 
     .feature-item strong{
