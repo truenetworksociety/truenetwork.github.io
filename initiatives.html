@@ -597,16 +597,28 @@
     }
 
     .card-number{
-      width:40px;
-      height:40px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:12px;
+
+      /* same style as step-number */
+      background:linear-gradient(
+        135deg,
+        rgba(99,226,214,.18),
+        rgba(125,168,255,.18)
+      );
+
       border:1px solid rgba(125,168,255,.22);
-      background:linear-gradient(180deg, rgba(125,168,255,.16), rgba(99,226,214,.08));
-      color:#d7e6ff;
+
+      /* match text */
+      color:var(--text);
+
       font-weight:700;
       font-size:.95rem;
+
       margin-bottom:14px;
     }
 
