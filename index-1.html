@@ -887,13 +887,27 @@
       flex:0 0 auto;
       width:36px;
       height:36px;
+
       border-radius:12px;
       display:grid;
       place-items:center;
+
       font-weight:700;
-      background:linear-gradient(135deg, rgba(125,168,255,.16), rgba(99,226,214,.10));
-      border:1px solid rgba(125,168,255,.22);
-      color:#dce8fa;
+
+      /* clean light surface */
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,0.95),
+        rgba(239,210,176,0.6)
+      );
+
+      border:1px solid rgba(84,119,146,0.25);
+
+      /* dark readable text */
+      color:#1A3263;
+
+      /* subtle elevation */
+      box-shadow:0 4px 10px rgba(26,50,99,0.06);
     }
 
     .summary-text{
