@@ -1196,10 +1196,10 @@
         min-height:560px;
       }
 
-      .node-a{top:22px; left:18px;}
-      .node-b{top:112px; right:18px;}
-      .node-c{top:226px; left:18px;}
-      .node-d{top:304px; right:18px;}
+      .node-a{top:14px; left:14px;}
+      .node-b{top:196px; left:14px;}
+      .node-c{top:14px; right:14px;}
+      .node-d{top:196px; right:14px;}
     }
 
     @media (max-width: 620px){
