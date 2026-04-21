@@ -641,10 +641,20 @@
     .tag{
       padding:8px 12px;
       border-radius:999px;
-      background:rgba(255,255,255,0.05);
-      border:1px solid var(--line);
-      color:#d9e7ff;
+
+      /* solid light surface */
+      background:rgba(255,255,255,0.9);
+
+      /* clearer separation */
+      border:1px solid rgba(84,119,146,0.22);
+
+      /* readable text */
+      color:#1A3263;
+
       font-size:.82rem;
+
+      /* subtle elevation */
+      box-shadow:0 3px 8px rgba(26,50,99,0.05);
     }
 
     .split-panel{
