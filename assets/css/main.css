@@ -729,7 +729,10 @@
       font-size:4rem;
       line-height:1;
       letter-spacing:-.06em;
-      color:rgba(125,168,255,0.32);
+
+      /* warmer + more visible */
+      color:rgba(255,197,112,0.55);
+
       margin-bottom:10px;
     }
 
