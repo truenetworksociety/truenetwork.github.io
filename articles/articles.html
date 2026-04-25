@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles - TrueNetwork Community Solutions Society</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQJKY28LGH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MQJKY28LGH');
+  </script>
+  <link rel="icon" href="assets/logos/icon.png" type="image/x-icon">
+  <meta
+    name="description"
+    content="TrueNetwork Community Solutions Society advances community-driven research, digital infrastructure, and collaborative innovation to strengthen resilience, equity, and sustainable development across British Columbia."
+  />
+  <link rel="stylesheet" href="/assets/css/main.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand" aria-label="TrueNetwork Community Solutions Society">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/logos/icon.png" alt="TrueNetwork Logo">
+        </span>
+        <span class="brand-text">
+          <strong>TrueNetwork Community Solutions Society</strong>
+          <span>Applied research • digital infrastructure • community innovation</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="#articles">Articles</a>
+        <a href="#connect">Connect</a>
+        <a href="/platform" class="btn btn-primary" style="color:black;">Platform</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section" id="articles">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Articles</span>
+            <h2>Insights, research, and community-driven perspectives.</h2>
+          </div>
+          <p>
+            Explore our articles on brain health, dementia-inclusive communities, and community-based innovation.
+            We share insights, practical learnings, and emerging ideas grounded in co-creation, inclusion, and real-world impact—highlighting how communities can support well-being, resilience, and meaningful participation across all stages of life.
+          </p>
+        </div>
+
+        <div class="panel-grid-1">
+          <article class="card program-card reveal">
+            <h3><span class="program-dot"></span> Dementia Co-Creation Program</h3>
+            <p>
+Why do we need community programs to support brain health and reduce cognitive decline in older adults?
+We know that up to 45% of dementia risk factors are modifiable, and addressing them can help prevent dementia and delay cognitive decline in older adults.
+              <a href="/articles/dementia-co-creation-program/">
+                <span style="color:var(--accent)"><b>Read More...</b></span>
+              </a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="connect">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-layout">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Connect with the Society</span>
+          <h2>Let’s build stronger community systems together.</h2>
+          <p>
+            Whether you are a nonprofit, municipality, community partner, policymaker, or researcher, the Society
+            is designed to support collaborative, evidence-informed action.
+          </p>
+        </div>
+
+        <form class="cta-form" id="ctaForm">
+          <div class="input-row">
+            <input type="email" id="emailInput" name="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-primary">Start a conversation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <strong style="display:block; color:var(--text); margin-bottom:6px;">TrueNetwork Community Solutions Society</strong>
+        <span>Community intelligence, collaborative infrastructure, and place-based innovation for public benefit.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="#articles">Articles</a>
+        <a href="#connect">Connect</a>
+        <span>© <span id="year"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+
+  <script>
+  document.getElementById("ctaForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("emailInput").value;
+      const pageUrl = window.location.href;
+
+      const subject = encodeURIComponent("New inquiry from TrueNetwork website");
+      const body = encodeURIComponent(
+          `Hello,\n\nI would like to connect with the Society.\n\n` +
+          `My email: ${email}\n` +
+          `Page: ${pageUrl}\n\n` +
+          `Please reach out to me.\n\nThank you`
+      );
+
+      const mailtoLink = `mailto:info@truenetworksociety.ca?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+  });
+  </script>
+</body>
+</html>
