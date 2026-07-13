@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrueNetwork Community Solutions Society</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQJKY28LGH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MQJKY28LGH');
+  </script>
+  <link rel="icon" href="assets/logos/icon.png" type="image/x-icon">
+  <meta
+    name="description"
+    content="TrueNetwork Community Solutions Society works with communities to create programs, tools, research, and design ideas that promote healthy living, connection, inclusion, and everyday life."
+  />
+  <link rel="stylesheet" href="/assets/css/main.css"/>
+  <style>
+    .statement-section{
+      padding:82px 0 58px;
+    }
+
+    .statement-panel{
+      position:relative;
+      padding:44px;
+      border-radius:34px;
+      border:1px solid rgba(84,119,146,0.16);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255,197,112,.18), transparent 30%),
+        radial-gradient(circle at 88% 20%, rgba(84,119,146,.10), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(253,241,226,.98));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .statement-panel h1{
+      margin:18px 0;
+      max-width:14ch;
+      font-size:clamp(3rem, 6.2vw, 5.5rem);
+      line-height:.95;
+      letter-spacing:-.055em;
+    }
+
+    .statement-panel p{
+      max-width:72ch;
+      margin:0;
+      color:var(--muted);
+      font-size:clamp(1.04rem, 1.6vw, 1.18rem);
+    }
+
+    .focus-card{
+      padding:0;
+    }
+
+    .focus-card img{
+      width:100%;
+      aspect-ratio:4 / 3;
+      object-fit:cover;
+    }
+
+    .focus-card-body{
+      padding:24px 26px 28px;
+    }
+
+    .focus-card h3{
+      margin-bottom:0;
+    }
+
+    .carousel-shell{
+      position:relative;
+      border-radius:34px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.94), rgba(253,241,226,0.96));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .carousel-track{
+      display:flex;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      scrollbar-width:none;
+    }
+
+    .carousel-track::-webkit-scrollbar{
+      display:none;
+    }
+
+    .carousel-slide{
+      flex:0 0 100%;
+      scroll-snap-align:start;
+      min-width:0;
+    }
+
+    .carousel-slide img{
+      width:100%;
+      height:min(62vw, 620px);
+      min-height:360px;
+      object-fit:cover;
+    }
+
+    .carousel-control{
+      position:absolute;
+      top:50%;
+      z-index:2;
+      width:48px;
+      height:48px;
+      border:1px solid rgba(84,119,146,0.25);
+      border-radius:50%;
+      background:rgba(255,255,255,0.9);
+      color:var(--text);
+      box-shadow:0 10px 24px rgba(26,50,99,0.12);
+      cursor:pointer;
+      transform:translateY(-50%);
+      transition:transform .25s ease, background .25s ease;
+    }
+
+    .carousel-control:hover,
+    .carousel-control:focus-visible{
+      background:#fff;
+      outline:none;
+      transform:translateY(-50%) scale(1.04);
+    }
+
+    .carousel-control.prev{
+      left:18px;
+    }
+
+    .carousel-control.next{
+      right:18px;
+    }
+
+    .carousel-dots{
+      position:absolute;
+      left:50%;
+      bottom:18px;
+      z-index:2;
+      display:flex;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(84,119,146,0.16);
+      background:rgba(255,255,255,0.82);
+      transform:translateX(-50%);
+      backdrop-filter:blur(12px);
+    }
+
+    .carousel-dot{
+      width:10px;
+      height:10px;
+      padding:0;
+      border:0;
+      border-radius:999px;
+      background:rgba(84,119,146,0.28);
+      cursor:pointer;
+      transition:width .25s ease, background .25s ease;
+    }
+
+    .carousel-dot.is-active{
+      width:26px;
+      background:var(--text);
+    }
+
+    .partners-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:20px;
+    }
+
+    .partner-card{
+      display:grid;
+      align-content:center;
+      min-height:220px;
+      text-align:center;
+    }
+
+    .partner-logo{
+      display:grid;
+      place-items:center;
+      min-height:118px;
+      margin-bottom:20px;
+      border-radius:22px;
+      border:1px solid rgba(84,119,146,0.14);
+      background:rgba(255,255,255,0.72);
+    }
+
+    .partner-logo img{
+      max-width:78%;
+      max-height:86px;
+      object-fit:contain;
+      margin:0 auto;
+    }
+
+    .partner-card h3{
+      margin-bottom:0;
+    }
+
+    @media (max-width: 860px){
+      .statement-panel{
+        padding:30px;
+      }
+
+      .carousel-slide img{
+        height:64vw;
+        min-height:300px;
+      }
+
+      .partners-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 620px){
+      .statement-section{
+        padding:48px 0 36px;
+      }
+
+      .brand{
+        max-width:100%;
+      }
+
+      .brand-text{
+        max-width:calc(100vw - 88px);
+      }
+
+      .brand-text strong{
+        white-space:normal;
+      }
+
+      .statement-panel{
+        padding:22px;
+        border-radius:26px;
+      }
+
+      .statement-panel h1{
+        font-size:clamp(2.4rem, 12vw, 4rem);
+      }
+
+      .carousel-control{
+        width:42px;
+        height:42px;
+      }
+
+      .carousel-control.prev{
+        left:10px;
+      }
+
+      .carousel-control.next{
+        right:10px;
+      }
+
+      .carousel-slide img{
+        height:70vw;
+        min-height:250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="TrueNetwork Community Solutions Society">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/logos/icon.png" alt="TrueNetwork Logo">
+        </span>
+        <span class="brand-text">
+          <strong>TrueNetwork Community Solutions Society</strong>
+          <span>Applied research &bull; digital infrastructure &bull; community innovation</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="/#approach">Approach</a>
+        <a href="/#purposes">Purposes</a>
+        <a href="/#connect">Connect</a>
+        <a href="/platform" class="btn btn-primary" style="color:black;">Platform</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="statement-section">
+      <div class="container">
+        <div class="statement-panel reveal">
+          <span class="eyebrow">
+            <span class="dot"></span>
+            Community solutions
+          </span>
+          <h1>At TrueNetwork We co-create solutions that help communities thrive.</h1>
+          <p>
+            TrueNetwork works with communities to create and develop programs, tools, research, and design ideas that promote healthy living, connection, inclusion, and everyday life.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="focus">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> What we build</span>
+            <h2>Programs, platforms, and research shaped with communities.</h2>
+          </div>
+          <p>
+            Our work brings together hands-on community programs, digital infrastructure, and practical research to help people and organizations act together.
+          </p>
+        </div>
+
+        <div class="panel-grid-3">
+          <article class="card focus-card reveal">
+            <img src="/assets/platform/community-programs.jpg" alt="Community members taking part in a hands-on program">
+            <div class="focus-card-body">
+              <h3>Community Programs</h3>
+            </div>
+          </article>
+
+          <article class="card focus-card reveal">
+            <img src="/assets/platform/digital-platforms.jpg" alt="Digital tools and community platform interface">
+            <div class="focus-card-body">
+              <h3>Digital Platforms</h3>
+            </div>
+          </article>
+
+          <article class="card focus-card reveal">
+            <img src="/assets/platform/research-innovation.jpg" alt="Collaborative research and community design table">
+            <div class="focus-card-body">
+              <h3>Research and Innovation</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="community-gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Community moments</span>
+            <h2>Images from our shared work.</h2>
+          </div>
+          <p>
+            A rotating view of community activities, gatherings, and collaborative spaces connected to TrueNetwork's work.
+          </p>
+        </div>
+
+        <div class="carousel-shell reveal" data-carousel>
+          <button class="carousel-control prev" type="button" data-carousel-prev aria-label="Previous image">&#8249;</button>
+          <div class="carousel-track" data-carousel-track tabindex="0" aria-label="Community image carousel">
+            <div class="carousel-slide">
+              <img src="/assets/carousel/5053321361153002531.jpg" alt="Community carousel image 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="/assets/carousel/5053321361153002532.jpg" alt="Community carousel image 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="/assets/carousel/5053321361153002533.jpg" alt="Community carousel image 3">
+            </div>
+            <div class="carousel-slide">
+              <img src="/assets/carousel/5053321361153002534.jpg" alt="Community carousel image 4">
+            </div>
+            <div class="carousel-slide">
+              <img src="/assets/carousel/5053321361153002535.jpg" alt="Community carousel image 5">
+            </div>
+            <div class="carousel-slide">
+              <img src="/assets/carousel/5053321361153002538.jpg" alt="Community carousel image 6">
+            </div>
+            <div class="carousel-slide">
+              <img src="/assets/carousel/5053321361153002539.jpg" alt="Community carousel image 7">
+            </div>
+          </div>
+          <button class="carousel-control next" type="button" data-carousel-next aria-label="Next image">&#8250;</button>
+          <div class="carousel-dots" aria-label="Choose carousel image">
+            <button class="carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Show image 1"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Show image 2"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Show image 3"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="3" aria-label="Show image 4"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="4" aria-label="Show image 5"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="5" aria-label="Show image 6"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="6" aria-label="Show image 7"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Our funders and partners</span>
+            <h2>Supported through community-aligned partnerships.</h2>
+          </div>
+          <p>
+            We are grateful for the funders and partners who help make inclusive, community-centered work possible.
+          </p>
+        </div>
+
+        <div class="partners-grid">
+          <article class="card partner-card reveal">
+            <div class="partner-logo">
+              <img src="/assets/partners/city-of-vancouver.jpg" alt="City of Vancouver logo">
+            </div>
+            <h3>City of Vancouver</h3>
+          </article>
+
+          <article class="card partner-card reveal">
+            <div class="partner-logo">
+              <img src="/assets/partners/burnaby-hospital.png" alt="Burnaby Hospital logo">
+            </div>
+            <h3>Burnaby Hospital</h3>
+          </article>
+
+          <article class="card partner-card reveal">
+            <div class="partner-logo">
+              <img src="/assets/partners/dania-home.webp" alt="Dania Home Society logo">
+            </div>
+            <h3>Dania Home Society</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <strong style="display:block; color:var(--text); margin-bottom:6px;">TrueNetwork Community Solutions Society</strong>
+        <span>Community intelligence, collaborative infrastructure, and place-based innovation for public benefit.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="#purposes">Purposes</a>
+        <a href="#connect">Connect</a>
+        <span>&copy; <span id="year"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+
+  <script>
+    const carousel = document.querySelector("[data-carousel]");
+    const track = document.querySelector("[data-carousel-track]");
+    const slides = Array.from(document.querySelectorAll(".carousel-slide"));
+    const dots = Array.from(document.querySelectorAll("[data-carousel-dot]"));
+    const prevButton = document.querySelector("[data-carousel-prev]");
+    const nextButton = document.querySelector("[data-carousel-next]");
+    let currentSlide = 0;
+    let carouselTimer;
+
+    function goToSlide(index){
+      currentSlide = (index + slides.length) % slides.length;
+      track.scrollTo({
+        left: slides[currentSlide].offsetLeft,
+        behavior: "smooth"
+      });
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === currentSlide);
+      });
+    }
+
+    function startCarousel(){
+      carouselTimer = window.setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 4000);
+    }
+
+    function stopCarousel(){
+      window.clearInterval(carouselTimer);
+    }
+
+    prevButton.addEventListener("click", () => goToSlide(currentSlide - 1));
+    nextButton.addEventListener("click", () => goToSlide(currentSlide + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        goToSlide(Number(dot.dataset.carouselDot));
+      });
+    });
+
+    track.addEventListener("keydown", (event) => {
+      if(event.key === "ArrowLeft"){
+        goToSlide(currentSlide - 1);
+      }
+      if(event.key === "ArrowRight"){
+        goToSlide(currentSlide + 1);
+      }
+    });
+
+    carousel.addEventListener("mouseenter", stopCarousel);
+    carousel.addEventListener("mouseleave", startCarousel);
+    carousel.addEventListener("focusin", stopCarousel);
+    carousel.addEventListener("focusout", startCarousel);
+    window.addEventListener("resize", () => goToSlide(currentSlide));
+
+    startCarousel();
+  </script>
+</body>
+</html>
