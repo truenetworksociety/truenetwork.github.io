@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dementia Co-creation Program - TrueNetwork Community Solutions Society</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQJKY28LGH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MQJKY28LGH');
+  </script>
+  <link rel="icon" href="/assets/logos/icon.png" type="image/x-icon">
+  <meta
+    name="description"
+    content="TrueNetwork Community Solutions Society advances community-driven research, digital infrastructure, and collaborative innovation to strengthen resilience, equity, and sustainable development across British Columbia."
+  />
+  <link rel="stylesheet" href="/assets/css/main.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand" aria-label="TrueNetwork Community Solutions Society">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="/assets/logos/icon.png" alt="TrueNetwork Logo">
+        </span>
+        <span class="brand-text">
+          <strong>TrueNetwork Community Solutions Society</strong>
+          <span>Applied research • digital infrastructure • community innovation</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="/articles">Articles</a>
+        <a href="/platform" class="btn btn-primary" style="color:black;">Platform</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section" id="article">
+      <div class="container">
+        <div class="section-head-single reveal">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Article</span>
+            <h2>TrueNetwork Receives Funding to Support People Living with Dementia
+            </h2>
+          </div>
+        </div>
+
+        <div class="card reveal">
+  <h3>Expanding inclusive, community-based programming for people living with dementia and their care partners.
+  </h3>
+
+  <p>
+    We are honoured and deeply grateful to receive support from both the Burnaby Hospital Foundation and the City of Vancouver through its Placemaking Grant program to expand programming for people living with dementia and their care partners.
+
+This funding will enable TrueNetwork Community Solutions Society to create inclusive, community-based opportunities that promote connection, belonging, wellbeing, and meaningful participation. Through co-creation, engaging activities, and welcoming community spaces, we aim to support people living with dementia while fostering stronger relationships between participants, care partners, volunteers, and the broader community.
+
+We sincerely thank the Burnaby Hospital Foundation and the City of Vancouver for believing in our vision and investing in more dementia-inclusive communities. Their support will help us create meaningful experiences that empower individuals, reduce social isolation, and strengthen community connections. We look forward to sharing the progress and impact of these programs in the months ahead.
+  </p>
+
+  <p>
+    👉 For partnerships, contact us at
+    <a href="mailto:info@truenetworksociety.ca">info@truenetworksociety.ca</a>
+  </p>
+
+  <p>
+    Let’s build more dementia-friendly and age-friendly communities, together. Resharing this post helps us reach more communities and collaborators.
+  </p>
+
+  <div class="mini-tags">
+      <span class="tag">Dementia</span>
+      <span class="tag">Healthy Aging</span>
+      <span class="tag">Community Development</span>
+      <span class="tag">Nonprofit</span>
+      <span class="tag">Social Innovation</span>
+      <span class="tag">Dementia Friendly</span>
+      <span class="tag">Aging Well</span>
+    </div>
+</div>
+      </div>
+    </section>
+
+    <section class="cta" id="connect">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-layout">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Connect with the Society</span>
+          <h2>Let’s build stronger community systems together.</h2>
+          <p>
+            Whether you are a nonprofit, municipality, community partner, policymaker, or researcher, the Society
+            is designed to support collaborative, evidence-informed action.
+          </p>
+        </div>
+
+        <form class="cta-form" id="ctaForm">
+          <div class="input-row">
+            <input type="email" id="emailInput" name="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-primary">Start a conversation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <strong style="display:block; color:var(--text); margin-bottom:6px;">TrueNetwork Community Solutions Society</strong>
+        <span>Community intelligence, collaborative infrastructure, and place-based innovation for public benefit.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/initiatives">Initiatives</a>
+        <a href="/articles">Articles</a>
+        <a href="#connect">Connect</a>
+        <span>© <span id="year"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+
+  <script>
+  document.getElementById("ctaForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("emailInput").value;
+      const pageUrl = window.location.href;
+
+      const subject = encodeURIComponent("New inquiry from TrueNetwork website");
+      const body = encodeURIComponent(
+          `Hello,\n\nI would like to connect with the Society.\n\n` +
+          `My email: ${email}\n` +
+          `Page: ${pageUrl}\n\n` +
+          `Please reach out to me.\n\nThank you`
+      );
+
+      const mailtoLink = `mailto:info@truenetworksociety.ca?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoLink;
+  });
+  </script>
+</body>
+</html>
